@@ -1,0 +1,65 @@
+demo.html
+
+<html>
+<body>
+<h1>Welcome to Node js</h1>
+<p>Node.js is an open-source, cross-platform, back-end JavaScript runtime
+environment that runs on the V8 engine and executes JavaScript code outside a
+web browser.
+</p>
+</body>
+</html>
+
+readHTML.js
+var http = require('http');
+var fs = require('fs');
+http.createServer(function (req, res) {
+fs.readFile('demo.html', function(err, data) {
+res.writeHead(200, {'Content-Type': 'text/html'});
+res.write(data);
+res.end();
+});
+}).listen(8080);
+
+
+append
+var fs = require('fs');
+
+fs.appendFile('mynewfile1.txt', 'Hello content!', function
+(err) {
+
+if (err) throw err;
+
+console.log('Saved!');
+
+});
+
+
+delete
+var fs = require('fs');
+
+fs.unlink('mynewfile2.txt', function (err) {
+
+if (err) throw err;
+
+console.log('File deleted!');
+
+rename
+var fs = require('fs');
+fs.rename('mynewfile1.txt', 'myrenamedfile.txt', function (err) {
+if (err) throw err;
+console.log('File Renamed!');
+});
+
+open
+var fs = require('fs');
+
+fs.open('mynewfile2.txt', 'w', function (err, file) {
+
+if (err) throw err;
+
+console.log('Saved!');
+
+});
+
+})
